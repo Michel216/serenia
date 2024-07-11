@@ -51,27 +51,33 @@
 
 <script setup>
 import { ref } from 'vue';
+
+import { onMounted } from 'vue';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-// import { LMap, LTileLayer, LMarker, LPopup } from '@vue-leaflet/vue-leaflet';
 
-// const hotelLocation = ref([50.783432, -1.065528]);
-import { onMounted } from 'vue'
-import L from 'leaflet'
-import 'leaflet/dist/leaflet.css'
-
+// Importa tu icono personalizado aquí
+import markerIcon from '/img/marker-icon.png';
 onMounted(() => {
   const map = L.map('map').setView([50.783432, -1.065528], 16);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    lang: 'es'
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  L.marker([50.783432, -1.065528]).addTo(map)
+  // Define el icono personalizado
+  const customIcon = L.icon({
+    iconUrl: markerIcon, // Ruta al archivo de tu icono personalizado
+    iconSize: [30, 35], // Tamaño del icono [ancho, alto]
+    iconAnchor: [12, 41], // Punto de anclaje del icono respecto al marcador (centro inferior)
+    popupAnchor: [1, -34] // Desplazamiento del popup en relación al icono
+  });
+
+  // Agrega el marcador con el icono personalizado
+  L.marker([50.783432, -1.065528], { icon: customIcon }).addTo(map)
     .bindPopup('Hotel Serenia')
     .openPopup();
 });
-
 const formRef = ref(null);
 const formData = ref({
   nombre: '',
@@ -277,26 +283,5 @@ width: 100% !important;
   width: 45%;
 }
 }
-/* @media (max-width: 360px) {
-  .infoContacto {
-    padding: 10px;
-  }
 
-  .contacta {
-    font-size: 1.2em;
-  }
-
-  .formulario {
-    width: 100%;
-  }
-
-  .formularioYmapa {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .map-container {
-    height: 300px;
-  }
-} */
 </style>
