@@ -1,0 +1,32 @@
+body {
+  margin: 0%;
+  font-family: "Arnold Regular";
+  min-width: 0px;
+}
+
+@font-face {
+  font-family: "MKX Title";
+  src: url("https://db.onlinewebfonts.com/t/030426028d3431c9ffaffb2b425b6733.eot");
+  src: url("https://db.onlinewebfonts.com/t/030426028d3431c9ffaffb2b425b6733.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/030426028d3431c9ffaffb2b425b6733.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/030426028d3431c9ffaffb2b425b6733.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/030426028d3431c9ffaffb2b425b6733.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/030426028d3431c9ffaffb2b425b6733.svg#MKX Title")format("svg");
+}
+
+.q-layout .q-layout--standard{
+
+min-width: none;
+min-height: none;
+}
+.q-btn:hover {
+  background-color: none !important;
+}
+
+.q-btn:focus {
+  background-color: none !important;
+}
+
+.q-btn::before {
+  background-color: none !important;
+}
